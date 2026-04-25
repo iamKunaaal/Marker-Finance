@@ -1,3 +1,13 @@
+// Banks marquee: clone tiles for seamless infinite scroll
+document.querySelectorAll('.banks-row').forEach((row) => {
+  const tiles = Array.from(row.children);
+  tiles.forEach((tile) => {
+    const clone = tile.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    row.appendChild(clone);
+  });
+});
+
 // Process rail animation
 const processRail = document.querySelector('.process-rail');
 if (processRail && 'IntersectionObserver' in window) {

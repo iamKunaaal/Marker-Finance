@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mortgage Calculator Suite · Marker Finance</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="calculator.css" />
+</head>
+<body class="page-calc">
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <img src="MF_Logo.png" alt="Marker Finance" class="brand-logo"/>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <div class="nav-item nav-item--has-mega">
+        <a href="#" class="nav-mega-trigger">Products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav-mega">
+          <div class="nav-mega-inner">
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🏠</span><span><strong>Residential Mortgage</strong><em>Villas, apartments &amp; townhouses</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🏢</span><span><strong>Commercial Property</strong><em>Offices &amp; retail spaces</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🌍</span><span><strong>Plot &amp; Land Loans</strong><em>Build on your terms</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🇦🇪</span><span><strong>UAE / GCC Nationals</strong><em>Preferential rates</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">💼</span><span><strong>Mega Loans</strong><em>High-value financing</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🔓</span><span><strong>Equity Release</strong><em>Unlock your home value</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">✈️</span><span><strong>International Mortgages</strong><em>Cross-border solutions</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🔄</span><span><strong>Balance Transfer</strong><em>Switch &amp; save</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🌐</span><span><strong>Non-Resident Mortgages</strong><em>For overseas investors</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">🏗️</span><span><strong>Under Construction</strong><em>Off-plan financing</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">📊</span><span><strong>Portfolio Consolidation</strong><em>One streamlined loan</em></span></a>
+            <a href="index.html#services" class="nav-mega-card"><span class="nav-mega-ico">☪️</span><span><strong>Islamic Finance</strong><em>Shariah-compliant</em></span></a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#services">Our Services</a>
+      <a href="calculator.html" class="active">Calculators</a>
+      <a href="#">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="calc-hero">
+  <div class="calc-hero-bg">
+    <span class="calc-orb calc-orb-a"></span>
+    <span class="calc-orb calc-orb-b"></span>
+    <span class="calc-grid-mask"></span>
+  </div>
+  <div class="container">
+    <div class="calc-hero-head">
+      <span class="calc-eyebrow">● Marker Finance Calculator Suite</span>
+      <h1>Comprehensive <span class="calc-accent">UAE mortgage tools</span> for smarter financial decisions</h1>
+      <p>Get instant, accurate estimates for EMI, eligibility, balance transfers, transaction costs, investment returns and more.</p>
+
+      <div class="calc-currency">
+        <span>Currency</span>
+        <div class="calc-toggle calc-toggle--currency">
+          <button class="active" data-currency="AED">AED</button>
+          <button data-currency="USD">USD</button>
+          <button data-currency="EUR">EUR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tool tabs -->
+    <div class="calc-tabs" role="tablist">
+      <button class="calc-tab active" data-tool="emi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>EMI</span>
+      </button>
+      <button class="calc-tab" data-tool="dbr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        <span>DBR</span>
+      </button>
+      <button class="calc-tab" data-tool="balance">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7"/></svg>
+        <span>Balance Transfer</span>
+      </button>
+      <button class="calc-tab" data-tool="transaction">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M5 6v14h14V6M9 10v8M15 10v8"/></svg>
+        <span>Transaction</span>
+      </button>
+      <button class="calc-tab" data-tool="roi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>ROI</span>
+      </button>
+      <button class="calc-tab" data-tool="tenor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>Tenor</span>
+      </button>
+      <button class="calc-tab" data-tool="ref">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+        <span>Ref Data</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== EMI CALCULATOR ============== -->
+<section class="calc-main calc-tool" data-tool-pane="emi">
+  <div class="container">
+    <div class="calc-title-row">
+      <div>
+        <h2>EMI Calculator</h2>
+        <p>Comprehensive mortgage analysis with payment breakdown.</p>
+      </div>
+      <div class="calc-actions">
+        <button class="calc-icon-btn" data-action="copy" title="Copy results"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button>
+        <button class="calc-icon-btn calc-icon-btn--primary" data-action="download" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 12l6 6 6-6M4 22h16"/></svg></button>
+        <button class="calc-icon-btn" data-action="reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 4v5h-5"/></svg></button>
+      </div>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-inputs">
+        <!-- Mode selector -->
+        <div class="calc-mode-grid">
+          <button class="calc-mode active" data-mode="property">
+            <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg></div>
+            <strong>Property Details</strong>
+            <span>Based on property value</span>
+          </button>
+          <button class="calc-mode" data-mode="offplan">
+            <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V8l7-5 7 5v13M9 21v-7h6v7"/></svg></div>
+            <strong>Off-Plan</strong>
+            <span>For off-plan properties</span>
+          </button>
+          <button class="calc-mode" data-mode="loan">
+            <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            <strong>Loan Amount</strong>
+            <span>Enter desired amount</span>
+          </button>
+          <button class="calc-mode" data-mode="eligibility">
+            <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+            <strong>Max Eligible</strong>
+            <span>Based on income</span>
+          </button>
+        </div>
+
+        <!-- Property Details inputs -->
+        <div class="calc-card" data-emi-mode="property">
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Property Value</label><input type="number" id="propertyValue" value="1500000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Down Payment (%)</label><input type="number" id="downPayment" value="20" min="0" max="100" step="1"/></div>
+            <div class="calc-field"><label>Loan Tenor</label>
+              <div class="calc-tenor">
+                <input type="number" id="loanTenor" value="300" min="12" max="360" step="12"/>
+                <div class="calc-toggle calc-toggle--tenor">
+                  <button class="active" data-unit="months">Months</button>
+                  <button data-unit="years">Years</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-loan-display">
+            <span class="calc-loan-label">Loan Amount</span>
+            <span class="calc-loan-value" id="loanAmountDisplay">AED 1,200,000</span>
+          </div>
+        </div>
+
+        <!-- Off-plan inputs -->
+        <div class="calc-card" data-emi-mode="offplan" hidden>
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Selling Price</label><input type="number" id="opSelling" value="2000000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Original Price</label><input type="number" id="opOriginal" value="1800000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Seller Paid</label><input type="number" id="opSellerPaid" value="800000" min="0" step="10000"/></div>
+          </div>
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Property Valuation (optional)</label><input type="number" id="opValuation" value="0" min="0" step="10000"/></div>
+            <div class="calc-field"><label>LTV (%)</label><input type="number" id="opLtv" value="50" min="0" max="80" step="1"/></div>
+            <div class="calc-field"><label>Loan Tenor (Months)</label><input type="number" id="opTenor" value="300" min="12" max="360" step="12"/></div>
+          </div>
+          <div class="calc-loan-display calc-loan-display--alt">
+            <div>
+              <span class="calc-loan-label">Premium Amount</span>
+              <span class="calc-mini" id="opPremium">AED 0</span>
+            </div>
+            <div>
+              <span class="calc-loan-label">Loan Amount (SP × LTV)</span>
+              <span class="calc-loan-value" id="opLoanAmount">AED 0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan Amount mode -->
+        <div class="calc-card" data-emi-mode="loan" hidden>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Loan Amount</label><input type="number" id="laLoanAmount" value="1200000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Loan Tenor (Months)</label><input type="number" id="laTenor" value="300" min="12" max="360" step="12"/></div>
+          </div>
+          <div class="calc-loan-display calc-loan-display--alt">
+            <div>
+              <span class="calc-loan-label">Max Property Value (80% LTV)</span>
+              <span class="calc-mini" id="laMaxProp">AED 0</span>
+            </div>
+            <div>
+              <span class="calc-loan-label">Required Down Payment (20%)</span>
+              <span class="calc-loan-value" id="laDownPay">AED 0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eligibility mode -->
+        <div class="calc-card" data-emi-mode="eligibility" hidden>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Monthly Income (Total)</label><input type="number" id="elIncome" value="30000" min="0" step="1000"/></div>
+            <div class="calc-field"><label>Existing Liabilities (Monthly)</label><input type="number" id="elLiab" value="0" min="0" step="500"/></div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>LTV Ratio (%)</label><input type="number" id="elLtv" value="80" min="0" max="100" step="1"/></div>
+            <div class="calc-field"><label>Loan Tenor (Months)</label><input type="number" id="elTenor" value="300" min="12" max="360" step="12"/></div>
+          </div>
+          <div class="calc-loan-display calc-loan-display--alt">
+            <div>
+              <span class="calc-loan-label">Max Eligible Loan</span>
+              <span class="calc-loan-value" id="elMaxLoan">AED 0</span>
+            </div>
+            <div>
+              <span class="calc-loan-label">Max Property Value</span>
+              <span class="calc-mini" id="elMaxProp">AED 0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interest Rates -->
+        <div class="calc-card calc-card--accent">
+          <div class="calc-card-head">
+            <div class="calc-card-title"><span class="calc-card-icon">%</span><strong>Interest Rates</strong></div>
+            <div class="calc-toggle calc-toggle--rate">
+              <button class="active" data-rate="fixed">Fixed</button>
+              <button data-rate="variable">Variable</button>
+            </div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Fixed Rate (%)</label><input type="number" id="fixedRate" value="3.99" min="0" max="20" step="0.01"/></div>
+            <div class="calc-field"><label>Fixed Period (Years)</label><input type="number" id="fixedPeriod" value="3" min="0" max="30" step="1"/></div>
+          </div>
+          <div class="calc-field calc-field--full" id="variableField" hidden>
+            <label>Variable Post Rate (%)</label>
+            <input type="number" id="variableRate" value="4.3" min="0" max="20" step="0.01"/>
+          </div>
+        </div>
+
+        <!-- Sub-tabs: Insurance / Transaction / DBR -->
+        <div class="calc-card calc-card--tabs">
+          <div class="calc-extras-tabs">
+            <button class="calc-extra-tab active" data-extra="insurance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/></svg>Insurance<span class="calc-dot" data-on="false"></span></button>
+            <button class="calc-extra-tab" data-extra="transaction"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M5 6v14h14V6"/></svg>Transaction<span class="calc-dot" data-on="false"></span></button>
+            <button class="calc-extra-tab" data-extra="dbr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>DBR Policy<span class="calc-dot" data-on="false"></span></button>
+          </div>
+
+          <div class="calc-extras-body">
+            <!-- Insurance pane -->
+            <div class="calc-extra-pane active" data-pane="insurance">
+              <div class="calc-extra-row">
+                <span>Insurance Options</span>
+                <label class="calc-switch">
+                  <input type="checkbox" id="insuranceToggle"/>
+                  <span class="calc-switch-track"><span class="calc-switch-thumb"></span></span>
+                  <span class="calc-switch-label">Disabled</span>
+                </label>
+              </div>
+              <div id="insuranceDetail" hidden>
+                <div class="calc-toggle-card">
+                  <div class="calc-toggle-card-head">
+                    <strong>Life Insurance</strong>
+                    <label class="calc-switch calc-switch--sm"><input type="checkbox" id="lifeInsToggle" checked/><span class="calc-switch-track"><span class="calc-switch-thumb"></span></span></label>
+                  </div>
+                  <div class="calc-row calc-row-2">
+                    <div class="calc-field"><label>Rate (% of outstanding)</label><input type="number" id="lifeInsRate" value="0.0159" min="0" max="2" step="0.0001"/></div>
+                    <div class="calc-field"><label>Period</label>
+                      <div class="calc-toggle">
+                        <button class="active" data-life="monthly">Monthly</button>
+                        <button data-life="yearly">Yearly</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="calc-toggle-card">
+                  <div class="calc-toggle-card-head">
+                    <strong>Property Insurance</strong>
+                    <label class="calc-switch calc-switch--sm"><input type="checkbox" id="propInsToggle" checked/><span class="calc-switch-track"><span class="calc-switch-thumb"></span></span></label>
+                  </div>
+                  <div class="calc-row calc-row-2">
+                    <div class="calc-field"><label>Rate (% of property)</label><input type="number" id="propInsRate" value="0.00291" min="0" max="2" step="0.00001"/></div>
+                    <div class="calc-field"><label>Period</label>
+                      <div class="calc-toggle">
+                        <button class="active" data-prop="monthly">Monthly</button>
+                        <button data-prop="yearly">Yearly</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transaction pane -->
+            <div class="calc-extra-pane" data-pane="transaction">
+              <div class="calc-extra-row">
+                <span>Transaction Costs</span>
+                <label class="calc-switch">
+                  <input type="checkbox" id="transToggle" checked/>
+                  <span class="calc-switch-track"><span class="calc-switch-thumb"></span></span>
+                  <span class="calc-switch-label">Enabled</span>
+                </label>
+              </div>
+              <div id="transDetail">
+                <div class="calc-radio-group">
+                  <label><input type="radio" name="loanType" value="resale" checked/><span>Resale</span></label>
+                  <label><input type="radio" name="loanType" value="developer"/><span>Direct from Developer</span></label>
+                  <label><input type="radio" name="loanType" value="bt"/><span>BT / BT + Top-up</span></label>
+                  <label><input type="radio" name="loanType" value="equity"/><span>Pure Equity</span></label>
+                </div>
+                <h4 class="calc-h4">1. Property Transaction Cost</h4>
+                <div class="calc-row calc-row-3">
+                  <div class="calc-field"><label>Land Dept Fees (%)</label><input type="number" id="tcLandDept" value="4" min="0" max="10" step="0.1"/></div>
+                  <div class="calc-field"><label>Agent Fees (%)</label><input type="number" id="tcAgent" value="2" min="0" max="5" step="0.1"/></div>
+                  <div class="calc-field"><label>Trustee Fee</label><input type="number" id="tcTrustee" value="4000" min="0" step="100"/></div>
+                </div>
+                <div class="calc-row calc-row-2">
+                  <div class="calc-field"><label>Knowledge Fee</label><input type="number" id="tcKnowledge" value="290" min="0" step="10"/></div>
+                  <div class="calc-field"><label>Title Deed Fee</label><input type="number" id="tcTitleDeed" value="580" min="0" step="10"/></div>
+                </div>
+                <h4 class="calc-h4">2. Mortgage Transaction Cost</h4>
+                <div class="calc-row calc-row-2">
+                  <div class="calc-field"><label>Mortgage Processing (%)</label><input type="number" id="tcMortProc" value="0.5" min="0" max="2" step="0.05"/></div>
+                  <div class="calc-field"><label>Mortgage Valuation Fee</label><input type="number" id="tcMortVal" value="3150" min="0" step="50"/></div>
+                </div>
+                <div class="calc-row calc-row-2">
+                  <div class="calc-field"><label>Mortgage Registration (%)</label><input type="number" id="tcMortReg" value="0.25" min="0" max="2" step="0.05"/></div>
+                  <div class="calc-field"><label>Other Charges</label><input type="number" id="tcOther" value="0" min="0" step="100"/></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DBR pane -->
+            <div class="calc-extra-pane" data-pane="dbr">
+              <div class="calc-extra-row">
+                <span>DBR Policy Settings</span>
+                <label class="calc-switch">
+                  <input type="checkbox" id="dbrPolicyToggle"/>
+                  <span class="calc-switch-track"><span class="calc-switch-thumb"></span></span>
+                  <span class="calc-switch-label">Disabled</span>
+                </label>
+              </div>
+              <div id="dbrPolicyDetail" hidden>
+                <div class="calc-row calc-row-2">
+                  <div class="calc-field"><label>Stress Rate (%)</label><input type="number" id="dbrStressRate" value="6.76" min="0" max="15" step="0.01"/></div>
+                  <div class="calc-field"><label>DBR Threshold (%)</label><input type="number" id="dbrThreshold" value="50" min="0" max="80" step="1"/></div>
+                </div>
+                <div class="calc-row calc-row-2">
+                  <div class="calc-collapse-card">
+                    <div class="calc-collapse-head"><strong>Income Sources</strong><span id="emiTotalIncome">Total: AED 0</span></div>
+                    <div class="calc-rows" id="emiIncomeRows"></div>
+                    <button class="calc-add-btn" data-add="emiIncome">+ Add Income</button>
+                  </div>
+                  <div class="calc-collapse-card">
+                    <div class="calc-collapse-head"><strong>Liabilities</strong><span id="emiTotalLiab">Total: AED 0</span></div>
+                    <div class="calc-rows" id="emiLiabRows"></div>
+                    <button class="calc-add-btn" data-add="emiLiab">+ Add Liability</button>
+                  </div>
+                </div>
+                <p class="calc-note">DBR is calculated as (Stressed EMI + Liabilities) ÷ Total Income. UAE Central Bank cap is 50%.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results sidebar -->
+      <aside class="calc-results">
+        <div class="calc-summary calc-summary--primary">
+          <div class="calc-summary-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>MONTHLY PAYMENT</div>
+          <div class="calc-monthly" id="emiMonthly">AED 0</div>
+          <div class="calc-summary-row"><span>Principal + Interest</span><strong id="emiPrincipalInt">0</strong></div>
+          <div class="calc-summary-row" id="emiInsRow" hidden><span>Insurance / month</span><strong id="emiInsAmt">0</strong></div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="calc-summary-head calc-summary-head--plain">LOAN SUMMARY</div>
+          <div class="calc-summary-row"><span>Property Value</span><strong id="sPropValue">0</strong></div>
+          <div class="calc-summary-row"><span>Down Payment</span><strong id="sDownPayment">0</strong></div>
+          <div class="calc-summary-row"><span>Loan Amount</span><strong id="sLoanAmount">0</strong></div>
+          <div class="calc-summary-row"><span>Loan Tenor</span><strong id="sTenor">0</strong></div>
+          <div class="calc-summary-row"><span>Interest Type</span><strong id="sRateType">Fixed</strong></div>
+          <div class="calc-summary-row" id="sFixedPeriodRow" hidden><span>Fixed Rate Period</span><strong id="sFixedPeriod">0</strong></div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="calc-summary-head calc-summary-head--plain">TOTAL COST BREAKDOWN</div>
+          <div class="calc-summary-row calc-summary-row--accent"><span>Total Interest</span><strong id="sTotalInterest" class="warn">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--sub" id="sFixedInterestRow" hidden><span>↳ Fixed Rate Period</span><strong id="sFixedInterest">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--sub" id="sVarInterestRow" hidden><span>↳ Variable Rate Period</span><strong id="sVarInterest">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--accent" id="sInsuranceRow" hidden><span>Total Insurance</span><strong id="sTotalIns">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--accent" id="sTransRow"><span>Transaction Costs <span class="calc-chip" id="sLoanTypeBadge">Resale</span></span><strong id="sTransactionCosts">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--sub"><span>↳ Property Costs</span><strong id="sPropTrans">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--sub"><span>↳ Mortgage Costs</span><strong id="sMortTrans">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--accent"><span>Down Payment</span><strong id="sDownPay2">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--sub"><span>↳ Total Upfront Cost</span><strong id="sUpfront">0</strong></div>
+        </div>
+
+        <div class="calc-summary calc-summary--total">
+          <div class="calc-summary-head calc-summary-head--plain">TOTAL PAID</div>
+          <div class="calc-monthly calc-monthly--total" id="sTotalPaid">AED 0</div>
+        </div>
+
+        <div class="calc-dbr-pill" id="emiDbrPill" hidden>
+          <div class="calc-dbr-head"><span>Stress DBR</span><strong id="emiDbrValue">0%</strong></div>
+          <div class="calc-dbr-bar"><div class="calc-dbr-fill" id="emiDbrFill"></div></div>
+          <span class="calc-dbr-status" id="emiDbrStatus">—</span>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Bottom analysis tabs -->
+    <div class="calc-bottom">
+      <div class="calc-bottom-tabs">
+        <button class="calc-bottom-tab active" data-bottom="breakdown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Payment Breakdown</button>
+        <button class="calc-bottom-tab" data-bottom="visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V11M11 21V5M17 21v-8"/></svg>Visual Analytics</button>
+        <button class="calc-bottom-tab" data-bottom="schedule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M9 4v16M14 4v16"/></svg>Amortization Schedule</button>
+        <button class="calc-bottom-tab" data-bottom="tips"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 00-4 12.7V18h8v-3.3A7 7 0 0012 2z"/><path d="M9 22h6"/></svg>Smart Tips</button>
+      </div>
+
+      <div class="calc-bottom-pane active" data-pane="breakdown">
+        <h3>Total Payment Breakdown</h3>
+        <div class="calc-table">
+          <div class="calc-table-row"><span>Principal Amount</span><strong id="bdPrincipal">0</strong></div>
+          <div class="calc-table-row"><span>Total Interest</span><strong id="bdInterest" class="warn">0</strong></div>
+          <div class="calc-table-row calc-table-row--sub"><span>↳ Fixed Rate Period</span><strong id="bdFixedInt">0</strong></div>
+          <div class="calc-table-row calc-table-row--sub"><span>↳ Variable Rate Period</span><strong id="bdVarInt">0</strong></div>
+          <div class="calc-table-row" id="bdInsRow" hidden><span>Total Insurance</span><strong id="bdIns">0</strong></div>
+          <div class="calc-table-row calc-table-row--total"><span>Total Payment</span><strong id="bdTotal">0</strong></div>
+        </div>
+      </div>
+
+      <div class="calc-bottom-pane" data-pane="visual">
+        <h3>Cost Distribution</h3>
+        <div class="calc-chart-wrap">
+          <div class="calc-donut" id="costDonut">
+            <div class="calc-donut-center"><span class="calc-donut-label">Total Paid</span><strong id="donutTotal">AED 0</strong></div>
+          </div>
+          <ul class="calc-legend" id="costLegend"></ul>
+        </div>
+        <h3 style="margin-top: 32px">Payment Composition Over Time</h3>
+        <div class="calc-bar-chart" id="paymentBarChart"></div>
+      </div>
+
+      <div class="calc-bottom-pane" data-pane="schedule">
+        <div class="calc-schedule-head">
+          <h3>Amortization Schedule</h3>
+          <div class="calc-toggle calc-toggle--schedule">
+            <button class="active" data-schedule="yearly">Yearly</button>
+            <button data-schedule="monthly">Monthly</button>
+          </div>
+          <button class="btn btn-ghost btn-sm" data-action="csv">Download CSV</button>
+        </div>
+        <div class="calc-schedule-wrap">
+          <table class="calc-schedule">
+            <thead><tr><th>Period</th><th>EMI</th><th>Interest</th><th>Principal</th><th>Insurance</th><th>Balance</th></tr></thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="calc-bottom-pane" data-pane="tips">
+        <h3>Smart Tips & Insights</h3>
+        <div class="calc-tips" id="tipsList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DBR CALCULATOR ============== -->
+<section class="calc-main calc-tool" data-tool-pane="dbr" hidden>
+  <div class="container">
+    <div class="calc-title-row">
+      <div>
+        <h2>DBR Calculator</h2>
+        <p>Assess your mortgage eligibility based on Debt Burden Ratio.</p>
+      </div>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-inputs">
+        <div class="calc-card">
+          <h3 class="calc-h3">Loan Request Details</h3>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Requested Loan Amount</label><input type="number" id="dbrLoan" value="1500000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Stress Rate (%)</label><input type="number" id="dbrStress" value="6.76" min="0" max="15" step="0.01"/></div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Loan Tenor (Months)</label><input type="number" id="dbrTenor" value="300" min="12" max="360" step="12"/></div>
+            <div class="calc-field"><label>DBR Threshold (%)</label><input type="number" id="dbrThresh" value="50" min="0" max="80" step="1"/></div>
+          </div>
+        </div>
+
+        <div class="calc-row calc-row-2">
+          <div class="calc-collapse-card">
+            <div class="calc-collapse-head"><strong>Income Sources</strong><span id="dbrTotalIncome">Total: AED 0</span></div>
+            <div class="calc-rows" id="dbrIncomeRows"></div>
+            <button class="calc-add-btn" data-add="dbrIncome">+ Add Income Source</button>
+            <div class="calc-mini-summary"><span>50% DBR Threshold</span><strong id="dbrThreshAmt">AED 0</strong></div>
+          </div>
+          <div class="calc-collapse-card">
+            <div class="calc-collapse-head"><strong>Liabilities</strong><span id="dbrTotalLiab">Total: AED 0</span></div>
+            <div class="calc-rows" id="dbrLiabRows"></div>
+            <button class="calc-add-btn" data-add="dbrLiab">+ Add Liability</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="calc-results">
+        <div class="calc-grid-2">
+          <div class="calc-summary calc-summary--metric">
+            <span class="calc-metric-label">Requested</span>
+            <strong class="calc-metric-num" id="dbrReqAmt">AED 0</strong>
+          </div>
+          <div class="calc-summary calc-summary--metric calc-summary--ok" id="dbrEligibleCard">
+            <span class="calc-metric-label">Eligible</span>
+            <strong class="calc-metric-num" id="dbrEligibleAmt">AED 0</strong>
+          </div>
+          <div class="calc-summary calc-summary--metric">
+            <span class="calc-metric-label">Stress Monthly EMI</span>
+            <strong class="calc-metric-num" id="dbrStressEmi">AED 0</strong>
+          </div>
+          <div class="calc-summary calc-summary--metric">
+            <span class="calc-metric-label">Stress DBR</span>
+            <strong class="calc-metric-num" id="dbrStressVal">0%</strong>
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="calc-summary-head calc-summary-head--plain">DBR ANALYSIS</div>
+          <div class="calc-summary-row"><span>Current DBR (Before Loan)</span><strong id="dbrCurrent">0%</strong></div>
+          <div class="calc-summary-row"><span>Stress DBR (With New Loan)</span><strong id="dbrStressR">0%</strong></div>
+          <div class="calc-summary-row"><span>DBR Threshold</span><strong id="dbrThreshDisp">50%</strong></div>
+          <div class="calc-summary-row"><span>Monthly Debt Payments</span><strong id="dbrDebt">0</strong></div>
+          <div class="calc-summary-row"><span>Max Monthly EMI Available</span><strong id="dbrMaxEmi">0</strong></div>
+          <div class="calc-summary-row"><span>Max Loan (DBR-based)</span><strong id="dbrMaxLoan">0</strong></div>
+        </div>
+
+        <div class="calc-status-card" id="dbrStatusCard">
+          <strong id="dbrStatusTitle">✓ Loan Approved – Eligible</strong>
+          <span id="dbrStatusBody">Your stress DBR is within the UAE Central Bank limit.</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="calc-bottom">
+      <div class="calc-bottom-pane active" style="display:block">
+        <h3>DBR Improvement Tips</h3>
+        <div class="calc-tips" id="dbrTipsList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BALANCE TRANSFER ============== -->
+<section class="calc-main calc-tool" data-tool-pane="balance" hidden>
+  <div class="container">
+    <div class="calc-title-row">
+      <div>
+        <h2>Balance Transfer Calculator</h2>
+        <p>Compare existing and new loan options to see your savings.</p>
+      </div>
+    </div>
+
+    <div class="calc-layout calc-layout--full">
+      <div class="calc-inputs">
+        <div class="calc-card">
+          <h3 class="calc-h3">Property Details</h3>
+          <div class="calc-radio-group">
+            <label><input type="radio" name="btType" value="bt" checked/><span>Balance Transfer</span></label>
+            <label><input type="radio" name="btType" value="topup"/><span>BT + Top-up</span></label>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Property Value</label><input type="number" id="btPropValue" value="2000000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Outstanding Loan Amount</label><input type="number" id="btOutstanding" value="1200000" min="0" step="10000"/></div>
+          </div>
+          <div class="calc-field" id="btTopupField" hidden>
+            <label>Top-up Amount</label>
+            <input type="number" id="btTopup" value="0" min="0" step="10000"/>
+          </div>
+        </div>
+
+        <div class="calc-row calc-row-2 calc-bt-pair">
+          <div class="calc-card calc-card--existing">
+            <h3 class="calc-h3">Existing Loan</h3>
+            <div class="calc-row calc-row-2">
+              <div class="calc-field"><label>Interest Rate (%)</label><input type="number" id="exRate" value="4.5" min="0" max="20" step="0.01"/></div>
+              <div class="calc-field"><label>Tenor Outstanding (Months)</label><input type="number" id="exTenor" value="240" min="12" max="360" step="12"/></div>
+            </div>
+            <div class="calc-row calc-row-2">
+              <div class="calc-field"><label>Fixed Period Remaining (Mos)</label><input type="number" id="exFixedRem" value="0" min="0" max="60" step="1"/></div>
+              <div class="calc-field"><label>Variable Post Rate (%)</label><input type="number" id="exVarRate" value="4.5" min="0" max="20" step="0.01"/></div>
+            </div>
+          </div>
+          <div class="calc-card calc-card--new">
+            <h3 class="calc-h3">New Loan</h3>
+            <div class="calc-row calc-row-2">
+              <div class="calc-field"><label>Interest Rate (%)</label><input type="number" id="newRate" value="3.49" min="0" max="20" step="0.01"/></div>
+              <div class="calc-field"><label>New Tenor (Months)</label><input type="number" id="newTenor" value="240" min="12" max="360" step="12"/></div>
+            </div>
+            <div class="calc-row calc-row-2">
+              <div class="calc-field"><label>Fixed Period (Years)</label><input type="number" id="newFixedYrs" value="3" min="0" max="5" step="1"/></div>
+              <div class="calc-field"><label>Variable Post Rate (%)</label><input type="number" id="newVarRate" value="4.0" min="0" max="20" step="0.01"/></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <h3 class="calc-h3">Movement Costs</h3>
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Mortgage Release Fee</label><input type="number" id="btReleaseFee" value="1500" min="0" step="100"/></div>
+            <div class="calc-field"><label>Early Settlement Fee</label><input type="number" id="btEarlyFee" value="10000" min="0" step="500"/></div>
+            <div class="calc-field"><label>NOC Charges</label><input type="number" id="btNOC" value="5000" min="0" step="500"/></div>
+          </div>
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Mortgage Processing (%)</label><input type="number" id="btMortProc" value="0.5" min="0" max="2" step="0.05"/></div>
+            <div class="calc-field"><label>Mortgage Valuation Fee</label><input type="number" id="btMortVal" value="3150" min="0" step="50"/></div>
+            <div class="calc-field"><label>Mortgage Registration (%)</label><input type="number" id="btMortReg" value="0.25" min="0" max="2" step="0.05"/></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="calc-results">
+        <div class="calc-grid-2">
+          <div class="calc-summary calc-summary--metric"><span class="calc-metric-label">Existing EMI</span><strong class="calc-metric-num" id="btExEmi">AED 0</strong></div>
+          <div class="calc-summary calc-summary--metric calc-summary--ok"><span class="calc-metric-label">New EMI</span><strong class="calc-metric-num" id="btNewEmi">AED 0</strong></div>
+          <div class="calc-summary calc-summary--metric"><span class="calc-metric-label">Monthly Savings</span><strong class="calc-metric-num" id="btMonthSavings">AED 0</strong></div>
+          <div class="calc-summary calc-summary--metric"><span class="calc-metric-label">Movement Cost</span><strong class="calc-metric-num" id="btMoveCost">AED 0</strong></div>
+          <div class="calc-summary calc-summary--metric"><span class="calc-metric-label">Net Savings</span><strong class="calc-metric-num" id="btNetSavings">AED 0</strong></div>
+          <div class="calc-summary calc-summary--metric"><span class="calc-metric-label">Break-Even</span><strong class="calc-metric-num" id="btBreakeven">0 mos</strong></div>
+        </div>
+        <div class="calc-status-card" id="btStatusCard">
+          <strong id="btStatusTitle">✓ Balance Transfer Recommended</strong>
+          <span id="btStatusBody">—</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="calc-bottom">
+      <div class="calc-bottom-pane active" style="display:block">
+        <h3>Comparison Summary</h3>
+        <div class="calc-table">
+          <div class="calc-table-row"><span>Monthly Payment (Existing)</span><strong id="cmpExEmi">0</strong></div>
+          <div class="calc-table-row"><span>Monthly Payment (New)</span><strong id="cmpNewEmi">0</strong></div>
+          <div class="calc-table-row"><span>Monthly Savings</span><strong id="cmpSavings">0</strong></div>
+          <div class="calc-table-row"><span>Total Cost (Existing)</span><strong id="cmpExTotal">0</strong></div>
+          <div class="calc-table-row"><span>Total Cost (New)</span><strong id="cmpNewTotal">0</strong></div>
+          <div class="calc-table-row"><span>Movement Cost</span><strong id="cmpMove">0</strong></div>
+          <div class="calc-table-row calc-table-row--total"><span>Net Savings</span><strong id="cmpNetSave">0</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TRANSACTION COSTS ============== -->
+<section class="calc-main calc-tool" data-tool-pane="transaction" hidden>
+  <div class="container">
+    <div class="calc-title-row">
+      <div>
+        <h2>Transaction Costs Calculator</h2>
+        <p>Calculate all property purchase transaction costs upfront.</p>
+      </div>
+    </div>
+
+    <div class="calc-mode-grid">
+      <button class="calc-mode active" data-tc="resale">
+        <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-5 7 5v11"/></svg></div>
+        <strong>Resale</strong><span>Secondary market</span>
+      </button>
+      <button class="calc-mode" data-tc="developer">
+        <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13"/></svg></div>
+        <strong>Off-Plan</strong><span>From developer</span>
+      </button>
+      <button class="calc-mode" data-tc="bt">
+        <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 3h5v5M8 21H3v-5M21 3l-7 7M3 21l7-7"/></svg></div>
+        <strong>Balance Transfer</strong><span>Switch lender</span>
+      </button>
+      <button class="calc-mode" data-tc="equity">
+        <div class="calc-mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <strong>Pure Equity</strong><span>Cash purchase</span>
+      </button>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-inputs">
+        <div class="calc-card">
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Property Value</label><input type="number" id="tcxPropValue" value="2000000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Loan Amount</label><input type="number" id="tcxLoanAmt" value="1600000" min="0" step="10000"/></div>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <h3 class="calc-h3">1. Property Transaction Cost</h3>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Registration Fee (%)</label><input type="number" id="tcxLandDept" value="4" min="0" max="10" step="0.1"/></div>
+            <div class="calc-field"><label>Calculated</label><input type="text" id="tcxLandDeptCalc" value="0" disabled/></div>
+          </div>
+          <div class="calc-row calc-row-2" id="tcxBrokerRow">
+            <div class="calc-field"><label>Broker Commission (%)</label><input type="number" id="tcxBroker" value="2" min="0" max="5" step="0.1"/></div>
+            <div class="calc-field"><label>+VAT 5% Total</label><input type="text" id="tcxBrokerCalc" value="0" disabled/></div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Trustee Fee (AED)</label><input type="number" id="tcxTrustee" value="4000" min="0" step="100"/></div>
+            <div class="calc-field"><label>+VAT Total</label><input type="text" id="tcxTrusteeCalc" value="0" disabled/></div>
+          </div>
+          <div class="calc-row calc-row-2" id="tcxNOCRow" hidden>
+            <div class="calc-field"><label>NOC Charges</label><input type="number" id="tcxNOC" value="5000" min="0" step="500"/></div>
+            <div class="calc-field"><label>—</label><input type="text" value="—" disabled/></div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Knowledge Fee</label><input type="number" id="tcxKnow" value="290" min="0" step="10"/></div>
+            <div class="calc-field"><label>Title Deed Fee</label><input type="number" id="tcxTitle" value="580" min="0" step="10"/></div>
+          </div>
+        </div>
+
+        <div class="calc-card" id="tcxMortCard">
+          <div class="calc-card-head">
+            <h3 class="calc-h3">2. Mortgage Transaction Cost</h3>
+            <label class="calc-switch calc-switch--sm"><input type="checkbox" id="tcxMortToggle" checked/><span class="calc-switch-track"><span class="calc-switch-thumb"></span></span></label>
+          </div>
+          <div id="tcxMortDetail">
+            <div class="calc-row calc-row-2">
+              <div class="calc-field"><label>Mortgage Processing (%)</label><input type="number" id="tcxMortProc" value="0.5" min="0" max="2" step="0.05"/></div>
+              <div class="calc-field"><label>+VAT Total</label><input type="text" id="tcxMortProcCalc" value="0" disabled/></div>
+            </div>
+            <div class="calc-row calc-row-2">
+              <div class="calc-field"><label>Mortgage Valuation Fee</label><input type="number" id="tcxMortVal" value="3150" min="0" step="50"/></div>
+              <div class="calc-field"><label>Mortgage Registration (%)</label><input type="number" id="tcxMortReg" value="0.25" min="0" max="2" step="0.05"/></div>
+            </div>
+            <div class="calc-row calc-row-2">
+              <div class="calc-field"><label>Other Charges</label><input type="number" id="tcxOther" value="0" min="0" step="100"/></div>
+              <div class="calc-field"><label>—</label><input type="text" value="—" disabled/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="calc-results">
+        <div class="calc-summary calc-summary--total" style="background: linear-gradient(135deg, #fff8e6, #fff)">
+          <div class="calc-summary-head calc-summary-head--plain">TOTAL TRANSACTION COSTS</div>
+          <div class="calc-monthly calc-monthly--total" id="tcxTotalCost">AED 0</div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="calc-summary-head calc-summary-head--plain">CASH REQUIRED UPFRONT</div>
+          <div class="calc-summary-row"><span>Down Payment</span><strong id="tcxDown">0</strong></div>
+          <div class="calc-summary-row"><span>Registration Fee</span><strong id="tcxRegOut">0</strong></div>
+          <div class="calc-summary-row" id="tcxBrokerOutRow"><span>Broker Commission (incl. VAT)</span><strong id="tcxBrokerOut">0</strong></div>
+          <div class="calc-summary-row"><span>Trustee Fee (incl. VAT)</span><strong id="tcxTrusteeOut">0</strong></div>
+          <div class="calc-summary-row" id="tcxNOCOutRow" hidden><span>NOC Charges</span><strong id="tcxNOCOut">0</strong></div>
+          <div class="calc-summary-row"><span>Knowledge Fee</span><strong id="tcxKnowOut">0</strong></div>
+          <div class="calc-summary-row"><span>Title Deed Fee</span><strong id="tcxTitleOut">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--accent"><span>Property Subtotal</span><strong id="tcxPropSub">0</strong></div>
+          <div class="calc-summary-row" id="tcxMortValRow"><span>Mortgage Valuation</span><strong id="tcxMortValOut">0</strong></div>
+          <div class="calc-summary-row" id="tcxMortProcRow"><span>Mortgage Processing</span><strong id="tcxMortProcOut">0</strong></div>
+          <div class="calc-summary-row" id="tcxMortRegRow"><span>Mortgage Registration</span><strong id="tcxMortRegOut">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--accent" id="tcxMortSubRow"><span>Mortgage Subtotal</span><strong id="tcxMortSub">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--total"><span>Total Cash Required</span><strong id="tcxCash">0</strong></div>
+          <p class="calc-note" style="margin-top: 12px">This is the approximate cash you need at purchase. Some fees may vary by lender.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ROI / INVESTMENT ============== -->
+<section class="calc-main calc-tool" data-tool-pane="roi" hidden>
+  <div class="container">
+    <div class="calc-title-row">
+      <div>
+        <h2>Investment ROI Calculator</h2>
+        <p>Calculate your property investment returns and break-even.</p>
+      </div>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-inputs">
+        <div class="calc-card">
+          <h3 class="calc-h3">Property Purchase Details</h3>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Property Purchase Price</label><input type="number" id="roiPrice" value="2000000" min="0" step="10000"/></div>
+            <div class="calc-field"><label>Trustee Fee</label><input type="number" id="roiTrustee" value="4000" min="0" step="100"/></div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Registration Fee (%)</label><input type="number" id="roiReg" value="4" min="0" max="10" step="0.1"/></div>
+            <div class="calc-field"><label>Broker Commission (%)</label><input type="number" id="roiBroker" value="2" min="0" max="5" step="0.1"/></div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>NOC Charges</label><input type="number" id="roiNOC" value="0" min="0" step="500"/></div>
+            <div class="calc-field"><label>Other Costs</label><input type="number" id="roiOther" value="0" min="0" step="500"/></div>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <h3 class="calc-h3">Property Details</h3>
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Area (sq ft)</label><input type="number" id="roiArea" value="1656" min="0" step="10"/></div>
+            <div class="calc-field"><label>Maintenance / sq ft (AED)</label><input type="number" id="roiMaintRate" value="17" min="0" step="0.5"/></div>
+            <div class="calc-field"><label>Total Maintenance</label><input type="text" id="roiMaintTotal" value="0" disabled/></div>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <h3 class="calc-h3">Annual Income & Expenses</h3>
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Annual Rent</label><input type="number" id="roiRent" value="160000" min="0" step="1000"/></div>
+            <div class="calc-field"><label>Management Fee</label><input type="number" id="roiMgmt" value="8000" min="0" step="500"/></div>
+            <div class="calc-field"><label>Annual Insurance</label><input type="number" id="roiIns" value="3000" min="0" step="100"/></div>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-card-head">
+            <h3 class="calc-h3">Mortgage Details</h3>
+            <label class="calc-switch calc-switch--sm"><input type="checkbox" id="roiMortToggle" checked/><span class="calc-switch-track"><span class="calc-switch-thumb"></span></span></label>
+          </div>
+          <div id="roiMortDetail">
+            <div class="calc-row calc-row-3">
+              <div class="calc-field"><label>Bank Loan Amount</label><input type="number" id="roiLoan" value="1600000" min="0" step="10000"/></div>
+              <div class="calc-field"><label>Interest Rate (%)</label><input type="number" id="roiRate" value="4" min="0" max="20" step="0.01"/></div>
+              <div class="calc-field"><label>Tenor (Months)</label><input type="number" id="roiTenor" value="300" min="12" max="360" step="12"/></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <h3 class="calc-h3">Inflation Assumptions</h3>
+          <div class="calc-row calc-row-3">
+            <div class="calc-field"><label>Rental Growth (% p.a.)</label><input type="number" id="roiGrowth" value="3" min="0" max="20" step="0.5"/></div>
+            <div class="calc-field"><label>Expense Inflation (% p.a.)</label><input type="number" id="roiInflation" value="2" min="0" max="20" step="0.5"/></div>
+            <div class="calc-field"><label>Property Appreciation (% p.a.)</label><input type="number" id="roiAppr" value="5" min="0" max="20" step="0.5"/></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="calc-results">
+        <div class="calc-summary">
+          <div class="calc-summary-head calc-summary-head--plain">UPFRONT COST REQUIRED</div>
+          <div class="calc-summary-row"><span>Property Price</span><strong id="roiUPrice">0</strong></div>
+          <div class="calc-summary-row"><span>Registration Fee</span><strong id="roiURegFee">0</strong></div>
+          <div class="calc-summary-row"><span>Broker Commission</span><strong id="roiUBroker">0</strong></div>
+          <div class="calc-summary-row"><span>Trustee Fee</span><strong id="roiUTrustee">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--accent"><span>Total Cost</span><strong id="roiUTotal">0</strong></div>
+          <div class="calc-summary-row"><span>Less: Bank Loan</span><strong id="roiULess">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--total"><span>Net Upfront Required</span><strong id="roiUNet">0</strong></div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="calc-summary-head calc-summary-head--plain">MONTHLY SUMMARY</div>
+          <div class="calc-summary-row"><span>Rental Income</span><strong id="roiMRent">0</strong></div>
+          <div class="calc-summary-row"><span>EMI</span><strong id="roiMEmi">0</strong></div>
+          <div class="calc-summary-row"><span>Service Fee</span><strong id="roiMService">0</strong></div>
+          <div class="calc-summary-row"><span>Insurance</span><strong id="roiMIns">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--accent"><span>Total Monthly Expenses</span><strong id="roiMExp">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--total"><span>Monthly Cashflow</span><strong id="roiMCash">0</strong></div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="calc-summary-head calc-summary-head--plain">BREAK-EVEN</div>
+          <div class="calc-summary-row"><span>Initial Investment</span><strong id="roiBI">0</strong></div>
+          <div class="calc-summary-row"><span>Annual Cashflow</span><strong id="roiBC">0</strong></div>
+          <div class="calc-summary-row calc-summary-row--total"><span>Years to Profit</span><strong id="roiBYears">0</strong></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="calc-bottom">
+      <div class="calc-bottom-pane active" style="display:block">
+        <h3>3-Year Projection</h3>
+        <div class="calc-projections" id="roiProjections"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TENOR ============== -->
+<section class="calc-main calc-tool" data-tool-pane="tenor" hidden>
+  <div class="container">
+    <div class="calc-title-row">
+      <div>
+        <h2>Loan Tenure Calculator</h2>
+        <p>Calculate maximum loan tenure based on age and eligibility.</p>
+      </div>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-inputs">
+        <div class="calc-card">
+          <div class="calc-row calc-row-2">
+            <div class="calc-field"><label>Date of Birth</label><input type="date" id="tnDob" value="1985-06-15"/></div>
+            <div class="calc-field">
+              <label>Calculation Method</label>
+              <div class="calc-toggle">
+                <button class="active" data-tnmode="custom">Custom Tenure</button>
+                <button data-tnmode="check">Check Eligibility</button>
+              </div>
+            </div>
+          </div>
+          <div class="calc-row calc-row-2">
+            <div class="calc-field">
+              <label>Nationality</label>
+              <div class="calc-radio-group">
+                <label><input type="radio" name="tnNat" value="uae" checked/><span>UAE National</span></label>
+                <label><input type="radio" name="tnNat" value="expat"/><span>Expat</span></label>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label>Employment</label>
+              <div class="calc-radio-group">
+                <label><input type="radio" name="tnEmp" value="salaried" checked/><span>Salaried</span></label>
+                <label><input type="radio" name="tnEmp" value="self"/><span>Self-Employed</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="calc-field" id="tnTenorField">
+            <label>Loan Tenure (Months)</label>
+            <input type="number" id="tnTenor" value="300" min="12" max="360" step="12"/>
+          </div>
+        </div>
+      </div>
+
+      <aside class="calc-results">
+        <div class="calc-summary calc-summary--metric calc-summary--info">
+          <span class="calc-metric-label">Current Age</span>
+          <strong class="calc-metric-num" id="tnCurrentAge">— yrs</strong>
+          <span class="calc-metric-sub" id="tnCurrentAgeSub">—</span>
+        </div>
+        <div class="calc-summary calc-summary--metric calc-summary--warn">
+          <span class="calc-metric-label">Age at Loan Maturity</span>
+          <strong class="calc-metric-num" id="tnMaturity">— yrs</strong>
+          <span class="calc-metric-sub" id="tnMaturitySub">—</span>
+        </div>
+        <div class="calc-summary calc-summary--metric calc-summary--ok">
+          <span class="calc-metric-label">Maximum Eligible Tenure</span>
+          <strong class="calc-metric-num" id="tnMaxTenor">— mos</strong>
+          <span class="calc-metric-sub" id="tnCategory">—</span>
+        </div>
+        <p class="calc-note">Maximum tenure includes a 2-month buffer to ensure loan maturity occurs before the age limit.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============== REF DATA ============== -->
+<section class="calc-main calc-tool" data-tool-pane="ref" hidden>
+  <div class="container">
+    <div class="calc-title-row">
+      <div>
+        <h2>Bank Data Reference</h2>
+        <p>Comprehensive UAE bank data — Stress rates, insurance, liabilities &amp; documents.</p>
+      </div>
+    </div>
+
+    <div class="calc-tabs calc-sub-tabs">
+      <button class="calc-tab active" data-ref="stress">Stress &amp; DBR</button>
+      <button class="calc-tab" data-ref="insurance">Insurance</button>
+      <button class="calc-tab" data-ref="liabilities">Liabilities</button>
+      <button class="calc-tab" data-ref="bybank">By Bank</button>
+      <button class="calc-tab" data-ref="docs">Document List</button>
+    </div>
+
+    <div class="calc-ref-pane active" data-refpane="stress">
+      <div class="calc-card">
+        <div class="calc-card-head">
+          <h3 class="calc-h3">Stress Rates &amp; DBR Limits <span class="calc-counter" id="stressCount">0 entries</span></h3>
+          <select id="stressFilter" class="calc-select">
+            <option value="all">All Banks</option>
+          </select>
+        </div>
+        <div class="calc-schedule-wrap">
+          <table class="calc-schedule">
+            <thead><tr><th>Bank</th><th>Type</th><th>Employment</th><th>Fixed Rate</th><th>Margin / Post</th><th>EIBOR</th><th>Stress Rate</th><th>Life Ins.</th><th>Max DBR</th></tr></thead>
+            <tbody id="stressBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-ref-pane" data-refpane="insurance" hidden>
+      <div class="calc-card">
+        <h3 class="calc-h3">Insurance Data by Bank</h3>
+        <div class="calc-schedule-wrap">
+          <table class="calc-schedule">
+            <thead><tr><th>Bank Name</th><th>Life Ins. (Conv.)</th><th>Life Ins. (Islamic)</th><th>Property (Conv.)</th><th>Property (Islamic)</th></tr></thead>
+            <tbody id="insBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-ref-pane" data-refpane="liabilities" hidden>
+      <div class="calc-card">
+        <h3 class="calc-h3">Liabilities Consideration by Bank</h3>
+        <div class="calc-schedule-wrap">
+          <table class="calc-schedule">
+            <thead><tr><th>Bank Name</th><th>Personal Loan</th><th>Mortgage Loan</th><th>Auto Loan</th><th>Other</th><th>Overdraft</th><th>Credit Card</th></tr></thead>
+            <tbody id="liabBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-ref-pane" data-refpane="bybank" hidden>
+      <div class="calc-card">
+        <div class="calc-card-head">
+          <h3 class="calc-h3">Bank-Specific Data</h3>
+          <select id="bankSelect" class="calc-select"></select>
+        </div>
+        <div id="byBankContent"></div>
+      </div>
+    </div>
+
+    <div class="calc-ref-pane" data-refpane="docs" hidden>
+      <div class="calc-card">
+        <h3 class="calc-h3">Document Checklist Generator</h3>
+        <div class="calc-row calc-row-3">
+          <div class="calc-field">
+            <label>Nationality</label>
+            <div class="calc-toggle">
+              <button class="active" data-doc="nat" data-val="expat">Expat</button>
+              <button data-doc="nat" data-val="uae">UAE National</button>
+            </div>
+          </div>
+          <div class="calc-field">
+            <label>Residency</label>
+            <div class="calc-toggle">
+              <button class="active" data-doc="res" data-val="resident">Resident</button>
+              <button data-doc="res" data-val="non">Non-Resident</button>
+            </div>
+          </div>
+          <div class="calc-field">
+            <label>Employment</label>
+            <div class="calc-toggle">
+              <button class="active" data-doc="emp" data-val="salaried">Salaried</button>
+              <button data-doc="emp" data-val="self">Self-Employed</button>
+            </div>
+          </div>
+        </div>
+        <div class="calc-doc-result">
+          <div class="calc-doc-head"><strong>Required Documents (<span id="docCount">0</span>)</strong>
+            <button class="btn btn-ghost btn-sm" data-action="copyDocs">Copy List</button>
+          </div>
+          <div id="docList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="calc-faq">
+  <div class="container">
+    <div class="calc-faq-head">
+      <span class="calc-eyebrow">● Frequently Asked</span>
+      <h2>UAE home loan questions, <span class="calc-accent">answered</span></h2>
+      <p>Everything you need to know about mortgages and home loans in the United Arab Emirates.</p>
+    </div>
+    <div class="calc-faq-grid">
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">1</span>Minimum down payment for UAE home loan?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">Central Bank requires 20% for residents on properties under AED 5M and 30% above. Non-residents typically need 25–35%.</div></details>
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">2</span>How is the interest rate determined?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">Banks combine a base rate (EIBOR for variable, internal pricing for fixed) with a margin based on profile, property type and tenor. We negotiate this margin on your behalf.</div></details>
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">3</span>Maximum loan tenor available in UAE?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">Up to 25 years for nationals and residents. Maximum age at maturity is generally 70 (salaried) or 75 (self-employed).</div></details>
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">4</span>Can expats get a home loan in UAE?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">Yes — most UAE banks offer mortgages to expats with valid residency, salary transfer (or non-transfer with margin), and minimum income (usually AED 15,000+).</div></details>
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">5</span>What is DBR and why does it matter?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">DBR is the % of monthly income going toward debt repayments. UAE Central Bank caps it at 50%.</div></details>
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">6</span>Can I make early repayment?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">Yes — Central Bank caps early settlement fees at 1% of outstanding balance or AED 10,000 (whichever is lower).</div></details>
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">7</span>Fixed vs Variable rates?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">Fixed locks the rate for an agreed period (1–5 years). Variable tracks EIBOR + margin and can move quarterly. Most UAE mortgages are fixed-then-variable combos.</div></details>
+      <details class="calc-faq-item"><summary><span class="calc-faq-num">8</span>Can I transfer my mortgage?<span class="calc-faq-arrow">›</span></summary><div class="calc-faq-body">Yes — balance transfer is common in UAE. We help you compare current offers and handle the entire switch.</div></details>
+    </div>
+
+    <div class="calc-cta-card">
+      <div>
+        <strong>Need Professional Assistance?</strong>
+        <span>Our expert mortgage advisors can help you find the best loan options tailored to your needs across every major UAE bank.</span>
+      </div>
+      <div class="calc-cta-actions">
+        <a href="index.html#contact" class="btn btn-primary">Get Free Consultation</a>
+        <a href="index.html#services" class="btn btn-ghost">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-bg">
+    <span class="footer-orb footer-orb-a"></span>
+    <span class="footer-orb footer-orb-b"></span>
+    <span class="footer-grid-mask"></span>
+  </div>
+
+  <div class="container footer-main">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="MF_Logo.png" alt="Marker Finance"/>
+        </a>
+        <p>At Marker Finance, we hold a deep commitment to empowering Micro, Small and Medium Enterprises (MSMEs) to flourish in a continually evolving business landscape — unlocking their full potential and driving economic growth across the UAE.</p>
+
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div>
+              <strong>UAE Licensed</strong>
+              <span>Regulated broker</span>
+            </div>
+          </div>
+          <div class="footer-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+            <div>
+              <strong>Bank-grade</strong>
+              <span>Encrypted data</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html#about"><span class="fx-dot"></span>About</a>
+        <a href="index.html#services"><span class="fx-dot"></span>Services</a>
+        <a href="index.html#process"><span class="fx-dot"></span>Features</a>
+        <a href="index.html#services"><span class="fx-dot"></span>Products</a>
+        <a href="calculator.html"><span class="fx-dot"></span>Calculators</a>
+        <a href="contact.html"><span class="fx-dot"></span>Contact</a>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h4>Contact Information</h4>
+        <p class="footer-contact-intro">Feel free to contact &amp; reach us!</p>
+
+        <a href="https://maps.google.com/?q=2106+Prime+Tower+Business+Bay+Dubai" target="_blank" rel="noopener" class="footer-contact-card">
+          <div class="footer-contact-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong>2106, Prime Tower, Business Bay</strong>
+            <span>PO Box 118469</span>
+          </div>
+        </a>
+
+        <a href="tel:+97143204500" class="footer-contact-card">
+          <div class="footer-contact-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+          </div>
+          <div>
+            <strong>+971 4320 4500</strong>
+            <span>Mon–Sat · 9:00 – 18:00</span>
+          </div>
+        </a>
+
+        <a href="mailto:contact@markerfinance.com" class="footer-contact-card">
+          <div class="footer-contact-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 6l8 7 8-7"/></svg>
+          </div>
+          <div>
+            <strong>contact@markerfinance.com</strong>
+            <span>Response within 2 hours</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="footer-col footer-news">
+        <h4>Stay in the loop</h4>
+        <p class="footer-news-intro">Weekly UAE rate insights and market signals — straight to your inbox. No spam.</p>
+        <form class="footer-news-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('.footer-news-ok').classList.add('show');">
+          <input type="email" placeholder="Your email address" required aria-label="Email"/>
+          <button type="submit" aria-label="Subscribe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+        <span class="footer-news-ok">✓ Thanks — you're subscribed.</span>
+
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 11.01-4.13 2.06 2.06 0 01-.01 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37a4 4 0 11-7.9 1.26A4 4 0 0116 11.37z"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/97143204500" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6.3-.5c0-.2 0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.9 2.8 4.5 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.7.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.2zM12 2a10 10 0 00-8.7 15l-1.3 4.5L6.6 20a10 10 0 105.4-18z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-wordmark" aria-hidden="true">MARKER FINANCE</div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="footer-bottom-left">
+        <span>© 2026 Marker Finance. All Rights Reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Terms &amp; Conditions</a>
+        <span class="footer-sep">·</span>
+        <a href="#">Privacy Policy</a>
+        <span class="footer-sep">·</span>
+        <a href="#">Cookies</a>
+      </div>
+      <div class="footer-bottom-right">
+        <span class="footer-locale">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+          UAE · EN
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/97143204500" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="wa-pulse"></span>
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.3 3 3.8 8.5 3.8 15.1c0 2.4.7 4.7 1.9 6.6L4 29l7.5-2c1.8.9 3.7 1.4 5.5 1.4 6.7 0 12.2-5.5 12.2-12.2S22.7 3 16 3zm0 22.3c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.6 1 1-3.5-.2-.4a10 10 0 01-1.7-5.8c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.2-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4-.1-.5l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3 4.9 4.2 2.4 1 2.9.8 3.4.8.5-.1 1.6-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/></svg>
+</a>
+
+<script src="script.js"></script>
+<script src="calculator.js"></script>
+</body>
+</html>
