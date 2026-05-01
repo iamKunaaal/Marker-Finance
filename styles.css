@@ -1789,6 +1789,12 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   border-color: transparent;
   transition-delay: 1.4s;
 }
+.process-rail.in-view .process-rail-stop:nth-child(4) .process-rail-dot{
+  background: linear-gradient(135deg, #05448b, #1c73d6);
+  color: #fff;
+  border-color: transparent;
+  transition-delay: 2.0s;
+}
 .process-rail-label{
   font-size: 11px;
   font-weight: 600;
