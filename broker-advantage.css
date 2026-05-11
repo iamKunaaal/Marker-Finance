@@ -1,0 +1,167 @@
+/* =====================================================================
+ * Broker Advantage page styles
+ * ===================================================================== */
+.page-broker{background: #fafbfd}
+
+/* ---------- Hero ---------- */
+.ba-hero{
+  position: relative;
+  padding: 140px 0 70px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f5f8fd 0%, #fafbfd 100%);
+}
+.ba-hero-bg{position: absolute; inset: 0; pointer-events: none; overflow: hidden}
+
+.ba-hero-grid{
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.ba-hero-text h1{
+  font-size: clamp(36px, 4.8vw, 56px);
+  font-weight: 700; line-height: 1.08;
+  letter-spacing: -0.02em; color: #0a1d3d;
+  margin: 0 0 18px;
+}
+.ba-hero-text > p{
+  font-size: 17px; line-height: 1.65;
+  color: #4a5568; margin: 0 0 26px;
+}
+.ba-hero-cta{display: flex; gap: 12px; flex-wrap: wrap}
+
+.ba-hero-art{
+  position: relative;
+  border-radius: 22px; overflow: hidden;
+  aspect-ratio: 5 / 4;
+  box-shadow: 0 30px 60px rgba(5,68,139,.18);
+}
+.ba-hero-art img{width: 100%; height: 100%; object-fit: cover}
+.ba-hero-pin{
+  position: absolute; bottom: 24px; left: 24px;
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px; font-weight: 600;
+  color: var(--brand);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+.ba-hero-pin .pulse{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34,197,94,.6);
+  animation: pulse-dot 2s infinite;
+}
+
+/* ---------- Advantages grid ---------- */
+.ba-advantages{padding: 80px 0; background: #fafbfd}
+.ba-advantages-head{
+  max-width: 720px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.ba-advantages-head h2{
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: #0a1d3d; margin: 14px 0 0; line-height: 1.15;
+}
+
+.ba-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.ba-grid .ba-card:nth-child(4){grid-column: 1 / span 1}
+.ba-grid .ba-card:nth-child(5){grid-column: 2 / span 2}
+
+.ba-card{
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(5,68,139,.08);
+  border-radius: 18px;
+  padding: 32px 28px 28px;
+  transition: all .3s ease;
+}
+.ba-card:hover{
+  border-color: rgba(28,115,214,.25);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(5,68,139,.10);
+}
+.ba-card-num{
+  position: absolute;
+  top: 22px; right: 26px;
+  font-size: 64px; font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, rgba(5,68,139,.08), rgba(28,115,214,.03));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  pointer-events: none;
+}
+.ba-card-icon{
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #05448b, #1c73d6);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px;
+  position: relative; z-index: 1;
+}
+.ba-card-icon svg{width: 26px; height: 26px; stroke: #fff}
+.ba-card h3{
+  font-size: 20px; font-weight: 700;
+  color: #0a1d3d; margin: 0 0 10px;
+  letter-spacing: -0.01em;
+  position: relative; z-index: 1;
+}
+.ba-card p{
+  font-size: 14.5px; line-height: 1.65;
+  color: #4a5568; margin: 0;
+  position: relative; z-index: 1;
+}
+.ba-card--accent{
+  background: linear-gradient(135deg, #05448b 0%, #1c73d6 100%);
+  border-color: transparent;
+  color: #fff;
+}
+.ba-card--accent::before{
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at top right, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at top right, #000 0%, transparent 70%);
+  border-radius: 18px;
+  pointer-events: none;
+}
+.ba-card--accent .ba-card-num{
+  background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.06));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.ba-card--accent .ba-card-icon{
+  background: rgba(255,255,255,.12);
+}
+.ba-card--accent h3{color: #fff}
+.ba-card--accent p{color: rgba(255,255,255,.85)}
+.ba-card--accent:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(5,68,139,.30);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px){
+  .ba-hero-grid{grid-template-columns: 1fr; gap: 36px}
+  .ba-grid{grid-template-columns: repeat(2, 1fr)}
+  .ba-grid .ba-card:nth-child(4),
+  .ba-grid .ba-card:nth-child(5){grid-column: auto}
+  .ba-grid .ba-card:nth-child(5){grid-column: 1 / -1}
+}
+@media (max-width: 640px){
+  .ba-hero{padding: 110px 0 50px}
+  .ba-advantages{padding: 50px 0}
+  .ba-grid{grid-template-columns: 1fr}
+  .ba-grid .ba-card:nth-child(5){grid-column: auto}
+}

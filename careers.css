@@ -1,0 +1,430 @@
+/* =====================================================================
+ * Careers page styles
+ * ===================================================================== */
+.page-careers{background: #fafbfd}
+
+/* ---------- Hero ---------- */
+.cr-hero{
+  position: relative;
+  padding: 140px 0 70px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f5f8fd 0%, #fafbfd 100%);
+}
+.cr-hero-bg{position: absolute; inset: 0; pointer-events: none; overflow: hidden}
+.cr-hero-grid{
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.cr-hero-text h1{
+  font-size: clamp(36px, 4.8vw, 56px);
+  font-weight: 700; line-height: 1.08;
+  letter-spacing: -0.02em; color: #0a1d3d;
+  margin: 0 0 18px;
+}
+.cr-hero-text > p{
+  font-size: 16px; line-height: 1.65;
+  color: #4a5568; margin: 0 0 14px;
+}
+.cr-hero-text > p:last-of-type{margin-bottom: 26px}
+.cr-hero-cta{display: flex; gap: 12px; flex-wrap: wrap}
+
+.cr-hero-art{
+  position: relative;
+  border-radius: 22px; overflow: hidden;
+  aspect-ratio: 5 / 4;
+  box-shadow: 0 30px 60px rgba(5,68,139,.18);
+}
+.cr-hero-art img{width: 100%; height: 100%; object-fit: cover}
+.cr-hero-pin{
+  position: absolute; bottom: 24px; left: 24px;
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px; font-weight: 600;
+  color: var(--brand);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+.cr-hero-pin .pulse{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34,197,94,.6);
+  animation: pulse-dot 2s infinite;
+}
+
+/* ---------- Why join ---------- */
+.cr-why{padding: 80px 0; background: #fff; border-top: 1px solid rgba(5,68,139,.06); border-bottom: 1px solid rgba(5,68,139,.06)}
+.cr-why-head{text-align: center; max-width: 680px; margin: 0 auto 40px}
+.cr-why-head h2{
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: #0a1d3d; margin: 14px 0 0; line-height: 1.15;
+}
+.cr-why-grid{
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.cr-why-card{
+  background: #fafbfd;
+  border: 1px solid rgba(5,68,139,.08);
+  border-radius: 14px;
+  padding: 28px 24px;
+  transition: all .3s ease;
+}
+.cr-why-card:hover{
+  border-color: rgba(28,115,214,.25);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(5,68,139,.08);
+}
+.cr-why-icon{
+  width: 46px; height: 46px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #05448b, #1c73d6);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.cr-why-icon svg{width: 22px; height: 22px; stroke: #fff}
+.cr-why-card h3{
+  font-size: 17px; font-weight: 700;
+  color: #0a1d3d; margin: 0 0 8px;
+}
+.cr-why-card p{
+  font-size: 14px; line-height: 1.6;
+  color: #5b6b85; margin: 0;
+}
+
+/* ---------- Current openings ---------- */
+.cr-openings{padding: 80px 0; background: #fafbfd}
+.cr-openings-head{text-align: center; max-width: 680px; margin: 0 auto 40px}
+.cr-openings-head h2{
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: #0a1d3d; margin: 14px 0 10px; line-height: 1.15;
+}
+.cr-openings-head p{font-size: 15px; color: #4a5568; margin: 0}
+
+.cr-jobs-grid{
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.cr-job{
+  background: #fff;
+  border: 1px solid rgba(5,68,139,.08);
+  border-radius: 16px;
+  padding: 26px 26px 22px;
+  display: flex; flex-direction: column;
+  transition: all .3s ease;
+  position: relative;
+}
+.cr-job:hover{
+  border-color: rgba(28,115,214,.25);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(5,68,139,.10);
+}
+.cr-job-head{
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 14px;
+}
+.cr-job-dept{
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brand);
+  background: rgba(5,68,139,.08);
+  padding: 4px 10px; border-radius: 6px;
+}
+.cr-job-type{
+  font-size: 12px; font-weight: 500;
+  color: #5b6b85;
+}
+.cr-job h3{
+  font-size: 22px; font-weight: 700;
+  color: #0a1d3d; margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.cr-job p{
+  font-size: 14.5px; line-height: 1.6;
+  color: #4a5568; margin: 0 0 18px;
+  flex: 1;
+}
+.cr-job-meta{
+  display: flex; gap: 16px; margin-bottom: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(5,68,139,.12);
+}
+.cr-job-loc{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: #5b6b85;
+}
+.cr-job-loc svg{width: 16px; height: 16px; stroke: #1c73d6}
+.cr-job-apply{
+  display: inline-flex; align-items: center; gap: 8px;
+  align-self: flex-start;
+  font-size: 14px; font-weight: 600;
+  color: var(--brand);
+  text-decoration: none;
+  padding: 10px 16px;
+  background: rgba(5,68,139,.06);
+  border-radius: 10px;
+  transition: all .25s ease;
+}
+.cr-job-apply svg{width: 14px; height: 14px; transition: transform .25s ease}
+.cr-job-apply:hover{
+  background: linear-gradient(135deg, #05448b, #1c73d6);
+  color: #fff;
+}
+.cr-job-apply:hover svg{transform: translateX(3px)}
+
+/* ---------- Hiring process ---------- */
+.cr-process{padding: 80px 0; background: #fff; border-top: 1px solid rgba(5,68,139,.06)}
+.cr-process-head{text-align: center; margin-bottom: 40px}
+.cr-process-head h2{
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: #0a1d3d; margin: 14px 0 10px;
+}
+.cr-process-head p{font-size: 15px; color: #4a5568; max-width: 560px; margin: 0 auto}
+.cr-process-grid{
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+.cr-process-step{
+  background: #fafbfd;
+  border: 1px solid rgba(5,68,139,.08);
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+}
+.cr-process-num{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #05448b, #1c73d6);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 700;
+  margin: 0 auto 16px;
+}
+.cr-process-step h4{
+  font-size: 16px; font-weight: 700;
+  color: #0a1d3d; margin: 0 0 8px;
+}
+.cr-process-step p{
+  font-size: 13.5px; line-height: 1.55;
+  color: #5b6b85; margin: 0;
+}
+
+/* ---------- Application form ---------- */
+.cr-apply{padding: 80px 0; background: linear-gradient(180deg, #fafbfd 0%, #f0f4fa 100%)}
+.cr-apply-grid{
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 50px; align-items: start;
+}
+.cr-apply-text h2{
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: #0a1d3d; margin: 14px 0 14px;
+}
+.cr-apply-text > p{
+  font-size: 16px; line-height: 1.65;
+  color: #4a5568; margin: 0 0 24px;
+}
+.cr-apply-list{
+  list-style: none; padding: 0; margin: 0;
+}
+.cr-apply-list li{
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 0;
+  font-size: 14.5px; color: #2d3748;
+  line-height: 1.5;
+  border-bottom: 1px dashed rgba(5,68,139,.12);
+}
+.cr-apply-list li:last-child{border-bottom: none}
+.cr-apply-list li svg{
+  width: 20px; height: 20px; flex-shrink: 0;
+  stroke: #1c73d6; margin-top: 1px;
+}
+
+.cr-form{
+  background: #fff;
+  border: 1px solid rgba(5,68,139,.08);
+  border-radius: 18px;
+  padding: 32px 32px 28px;
+  box-shadow: 0 22px 48px rgba(5,68,139,.10);
+  position: relative;
+}
+.cr-form::before{
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #05448b, #1c73d6);
+  border-radius: 18px 18px 0 0;
+}
+.cr-form-head{margin-bottom: 20px}
+.cr-form-head h3{
+  font-size: 24px; font-weight: 700;
+  color: #0a1d3d; margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.cr-form-head p{font-size: 13px; color: #5b6b85; margin: 0}
+
+.cr-form-grid{
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-bottom: 16px;
+}
+.cr-field{position: relative}
+.cr-field--full{grid-column: 1 / -1}
+.cr-field input[type="text"],
+.cr-field input[type="tel"],
+.cr-field input[type="email"],
+.cr-field input[type="date"],
+.cr-field select,
+.cr-field textarea{
+  width: 100%;
+  padding: 18px 14px 8px;
+  background: #fafbfd;
+  border: 1px solid rgba(5,68,139,.12);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #0a1d3d;
+  transition: border-color .2s ease, background .2s ease;
+}
+.cr-field textarea{padding-top: 26px; resize: vertical; min-height: 110px}
+.cr-field input:focus,
+.cr-field select:focus,
+.cr-field textarea:focus{
+  outline: none;
+  border-color: #1c73d6;
+  background: #fff;
+}
+.cr-field > label:not(.cr-file-label){
+  position: absolute;
+  left: 14px; top: 16px;
+  font-size: 13px; color: #8090a8;
+  pointer-events: none;
+  transition: all .2s ease;
+}
+.cr-field label span{color: #ef4444; margin-left: 2px}
+.cr-field input:focus + label,
+.cr-field input:not(:placeholder-shown) + label,
+.cr-field select:focus + label,
+.cr-field select:valid + label,
+.cr-field textarea:focus + label,
+.cr-field textarea:not(:placeholder-shown) + label,
+.cr-field .cr-label-static{
+  top: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--brand);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.cr-field input[type="date"] + label{
+  top: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--brand);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.cr-field select{
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2305448b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+/* File upload */
+.cr-field input[type="file"]{
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0; pointer-events: none;
+}
+.cr-file-label{
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 18px;
+  background: #fafbfd;
+  border: 1.5px dashed rgba(5,68,139,.25);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.cr-file-label:hover{
+  border-color: #1c73d6;
+  background: rgba(28,115,214,.04);
+}
+.cr-file-label svg{
+  width: 32px; height: 32px;
+  stroke: var(--brand);
+  flex-shrink: 0;
+}
+.cr-file-text{display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0}
+.cr-file-text strong{
+  font-size: 14px; font-weight: 700;
+  color: #0a1d3d;
+}
+.cr-file-text strong em{color: #ef4444; font-style: normal; margin-left: 2px}
+.cr-file-text em{
+  font-size: 12px; color: #5b6b85;
+  font-style: normal;
+}
+.cr-file-name{
+  font-size: 12px; font-weight: 500;
+  color: var(--brand);
+  background: rgba(5,68,139,.08);
+  padding: 6px 10px; border-radius: 6px;
+  flex-shrink: 0;
+  max-width: 180px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.cr-form-submit{
+  width: 100%;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  margin-top: 4px;
+}
+.cr-form-submit svg{width: 18px; height: 18px; flex-shrink: 0}
+
+.cr-form-success{
+  display: none;
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: rgba(34,197,94,.08);
+  border: 1px solid rgba(34,197,94,.25);
+  border-radius: 10px;
+  text-align: center;
+  flex-direction: column;
+  gap: 4px;
+  color: #15803d;
+}
+.cr-form-success.show{display: flex}
+.cr-form-success svg{
+  width: 32px; height: 32px;
+  margin: 0 auto 4px;
+  stroke: #16a34a;
+}
+.cr-form-success strong{font-size: 14px; color: #15803d}
+.cr-form-success span{font-size: 12px; color: #166534}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px){
+  .cr-hero-grid{grid-template-columns: 1fr; gap: 36px}
+  .cr-why-grid{grid-template-columns: repeat(2, 1fr)}
+  .cr-jobs-grid{grid-template-columns: 1fr}
+  .cr-process-grid{grid-template-columns: repeat(2, 1fr)}
+  .cr-apply-grid{grid-template-columns: 1fr; gap: 30px}
+}
+@media (max-width: 640px){
+  .cr-hero{padding: 110px 0 50px}
+  .cr-why, .cr-openings, .cr-process, .cr-apply{padding: 50px 0}
+  .cr-why-grid{grid-template-columns: 1fr}
+  .cr-process-grid{grid-template-columns: 1fr}
+  .cr-form-grid{grid-template-columns: 1fr}
+  .cr-form{padding: 24px 20px}
+  .cr-file-name{max-width: 100%}
+}
