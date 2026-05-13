@@ -824,17 +824,67 @@ const renderRefByBank = () => {
 };
 const docState = { nat: 'expat', res: 'resident', emp: 'salaried' };
 const renderDocs = () => {
-  const docs = {
-    Identity: ['Passport copy (all pages)', 'Emirates ID copy', 'Visa page copy'],
-    Income: docState.emp === 'salaried'
-      ? ['Salary certificate (latest)', '6 months bank statements showing salary', '6 months payslips']
-      : ['Trade license copy', 'Audited financial statements (last 2 years)', '12 months business bank statements', 'VAT certificate'],
-    Bank: ['6 months personal bank statements', 'Liability letter from existing banks (if applicable)'],
-    Property: ['MOU / Sale agreement', 'Title deed copy', 'Property valuation report', 'Floor plan'],
-    Other: ['Tenancy contract (if applicable)', 'Existing loan statements'],
-  };
-  if (docState.nat === 'expat') docs.Identity.push('Residence visa copy');
-  if (docState.res === 'non') docs.Income.push('Tax returns (home country)');
+  const { nat, res, emp } = docState;
+  let docs = {};
+
+  if (res === 'non' && emp === 'salaried') {
+    docs = {
+      Identity: [
+        'Passport copy',
+        'Emirates ID card (front &amp; back) or Iqama',
+        'Proof of residence overseas (utility or mobile bill)',
+      ],
+      Income: [
+        'Salary certificate (English, addressed to ADIB)',
+        'Latest 6 months payslips',
+      ],
+      Bank: [
+        '6 months bank statements (English)',
+        'Credit bureau report from country of employment',
+      ],
+      Other: [
+        'Filled and signed details sheet (provided by us)',
+      ],
+    };
+  } else if (res === 'non' && emp === 'self') {
+    docs = {
+      Identity: [
+        'Passport',
+        'National ID card (front &amp; back)',
+        'Latest proof of residence (electricity bill, dated within 30 to 60 days)',
+      ],
+      Income: [
+        'Trade licence / Chamber of Commerce certificate',
+        'Last 2 years company audited financial reports (if available)',
+        'Last 2 years tax returns',
+        'Memorandum and Articles of Association (MOA), if applicable',
+      ],
+      Bank: [
+        'Personal bank statements',
+        'Company bank statements',
+      ],
+      Business: [
+        'Company website address',
+        'Company profile',
+        'Copy of tenancy contract for office',
+      ],
+      Other: [
+        'Civil bureau report',
+      ],
+    };
+  } else {
+    docs = {
+      Identity: ['Passport copy (all pages)', 'Emirates ID copy', 'Visa page copy'],
+      Income: emp === 'salaried'
+        ? ['Salary certificate (latest)', '6 months bank statements showing salary', '6 months payslips']
+        : ['Trade licence copy', 'Audited financial statements (last 2 years)', '12 months business bank statements', 'VAT certificate'],
+      Bank: ['6 months personal bank statements', 'Liability letter from existing banks (if applicable)'],
+      Property: ['MOU / Sale agreement', 'Title deed copy', 'Property valuation report', 'Floor plan'],
+      Other: ['Tenancy contract (if applicable)', 'Existing loan statements'],
+    };
+    if (nat === 'expat') docs.Identity.push('Residence visa copy');
+  }
+
   let total = 0;
   let html = '';
   for (const [section, items] of Object.entries(docs)) {
